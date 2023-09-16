@@ -26,34 +26,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Camera Example',
       theme: ThemeData(),
-      home: MyHomePage(), //変えたところ(homeにホーム画面を追加したら良い？)
-      //home: TakePictureScreen(camera: camera),
+      //home: MyHomePage(), //変えたところ(homeにホーム画面を追加したら良い？)
+      home: TakePictureScreen(camera: camera),
     );
   }
 }
-
-//MyhomePageを丸々追加(画面遷移を行う？)
-class MyHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Home Page'),
-      ),
-      body: Center(
-        child: TextButton(
-          child: Text("次の画面へ"),
-          onPressed: () {
-            Navigator.push(
-                //遷移先をTakePictureScreenにしたら良いのかなと思ったけどTakePictureScreen()の引数の設定がわからない
-                context, MaterialPageRoute(builder: (context) => TakePictureScreen(camera: camera)));
-          },
-        ),
-      ),
-    );
-  }
-}
-
 
 /// 写真撮影画面
 class TakePictureScreen extends StatefulWidget {
